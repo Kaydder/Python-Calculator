@@ -16,18 +16,6 @@ Accepts both , and . as decimal separators.
 
 Clean exit option (q to quit anytime).
 
-📦 Installation
-
-Clone this repository:
-
-git clone https://github.com/your-username/calculator.git
-
-
-Navigate into the project folder:
-
-cd calculator
-
-
 Run with Python 3:
 
 python calculator.py
