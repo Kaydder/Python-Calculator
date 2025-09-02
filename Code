@@ -1,0 +1,51 @@
+def get_number(prompt):
+    while True:
+        entrada = input(prompt).strip().replace(",", ".")
+        if entrada.lower() == "q":
+            return None
+        try:
+            return float(entrada)
+        except ValueError:
+            print("⚠️ Invalid input, please enter a number.")
+
+
+def choose_operation():
+    while True:
+        op = input("Choose operation (+, -, *, /): ").strip()
+        if op in {"+", "-", "*", "/"}:
+            return op
+        print("⚠️ Invalid operation, try again.")
+
+
+def calculate(num1, num2, op):
+    if op == "+":
+        return num1 + num2
+    elif op == "-":
+        return num1 - num2
+    elif op == "*":
+        return num1 * num2
+    elif op == "/":
+        if num2 == 0:
+            print("⚠️ Error: cannot divide by zero.")
+            return None
+        return num1 / num2
+
+
+print("🧮 Calculator")
+while True:
+    answer = input("Do you want to make an operation? (Y/N) ").strip().lower()
+    if answer != "y":
+        print("User does not want to make an operation. Exiting...")
+        break
+
+    num1 = get_number("Type your first number (or 'q' to quit): ")
+    if num1 is None: break
+
+    num2 = get_number("Type your second number (or 'q' to quit): ")
+    if num2 is None: break
+
+    op = choose_operation()
+    result = calculate(num1, num2, op)
+
+    if result is not None:
+        print(f"Result: {round(result, 2)}")
